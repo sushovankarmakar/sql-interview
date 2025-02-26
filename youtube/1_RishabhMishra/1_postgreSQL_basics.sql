@@ -179,8 +179,32 @@ select current_date;
 -- FROM table2
 
 
+-- SUB QUERY
+-- a subquery or inner query or a nested query allows us to create complex query on the output of another query
+-- subquery syntax involves two SELECT statements - outer query and inner query
 
+-- syntax
+-- SELECT column1, column2, column3, ...
+-- FROM table1
+-- WHERE column1 = (SELECT column1 FROM table2 WHERE condition);
 
+-- details of customer whose salary is greater than the average salary of all customers
+select * from customer c where c.salary > (
+	select avg(salary) from customer c
+);
+
+select * from customer c where c.city IN (
+	select c.city from customer c where name like 'r%'
+);
+
+-- EXISTS
+-- the EXISTS operator is used to test for the existence of any record in a subquery
+-- the EXISTS operator returns true if the subquery returns one or more records
+
+-- syntax
+-- SELECT column1, column2, column3, ...
+-- FROM table1
+-- WHERE EXISTS (SELECT column1 FROM table2 WHERE condition);
 
 
 
