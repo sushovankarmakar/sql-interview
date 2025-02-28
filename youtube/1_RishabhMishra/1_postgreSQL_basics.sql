@@ -207,5 +207,108 @@ select * from customer c where c.city IN (
 -- WHERE EXISTS (SELECT column1 FROM table2 WHERE condition);
 
 
+-- WINDOW FUNCTION
+-- Window functions applies aggregate, ranking and analytic functions 
+-- over a group of rows related to one another
+-- and OVER clause is used with WINDOW function to define that window
+
+-- aggregate function vs window function
+-- aggregate function 	: it performs a calculation on a set of values and returns a single value
+-- window function 		: it performs a calculation across a set of table rows that are somehow related to the current row
+
+-- syntax
+-- SELECT column1, column2, column3, ..., fun() OVER 
+-- ([<PARTITION BY clause>]
+-- [<ORDER BY clause>]
+-- [<ROWS or RANGE clause>])
+-- FROM table1
+
+-- select a function 	: fun() - this function can be aggregate functions, ranking functions or analytic functions
+-- define a window		: OVER - PARTITION BY, ORDER BY, ROWS
+
+-- window function terms
+-- window function 	: applies aggregate, ranking and analytic functions over a particular window; for example, sum, avg, or row_number
+-- expression		: is the name of the column that we want the window function to be applied to. this may not be necessary depending on what window function is used.
+-- over 			: is just to signify that this is a window function
+-- partition by		: is used to divide the result set into partitions and perform the function on each partition
+-- order by			: is used to sort the rows in each partition. optional
+-- rows				: is used to specify the window frame for the window function. optional
+
+-- window function types
+-- aggregate 		: sum(), avg(), count(), max(), min()
+-- ranking			: row_number(), rank(), dense_rank(), percent_rank(), cume_dist(), ntile()
+-- analytic/ value	: lag(), lead(), first_value(), last_value(), nth_value()
 
 
+
+create table test_data (
+	id int8 not null,
+	category varchar(50) not null
+);
+
+-- drop table test_data;
+
+insert into test_data 
+(id, category)
+values
+(100, 'agni'),
+(200, 'agni'),
+(500, 'dharti'),
+(700, 'dharti'),
+(200, 'vayu'),
+(300, 'vayu'),
+(500, 'vayu');
+
+select * from postgres.public.test_data;
+
+-- window with aggregate function
+select *, 
+	sum(id) over(partition by category) as total,
+	avg(id) over(partition by category) as avgerage,
+	min(id) over(partition by category) as minimum,
+	max(id) over(partition by category) as maximum,
+	count(id) over(partition by category) as total_count,
+	first_value(id) over(partition by category) as first_val,
+	last_value(id) over(partition by category) as last_val,
+	lag(id) over(partition by category) as lag_val,
+	lead(id) over(partition by category) as lead_val,
+	nth_value(id, 2) over(partition by category) as nth_val
+from test_data td ;
+
+-- 'rows between unbounded preceding and unbounded following' - this will give a SINGLE output based on all INPUT values/PARITION (if used)
+select *,
+	sum(id) over(order by id rows between unbounded preceding and unbounded following) as total,
+	avg(id) over(order by id rows between unbounded preceding and unbounded following) as avgerage,
+	min(id) over(order by id rows between unbounded preceding and unbounded following) as minimum,
+	max(id) over(order by id rows between unbounded preceding and unbounded following) as maximum,
+	count(id) over(order by id rows between unbounded preceding and unbounded following) as count,
+	first_value(id) over(order by id rows between unbounded preceding and unbounded following) as first_val,
+	last_value(id) over(order by id rows between unbounded preceding and unbounded following) as last_val,
+	lag(id) over(order by id rows between unbounded preceding and unbounded following) as lag_val,
+	lead(id) over(order by id rows between unbounded preceding and unbounded following) as lead_val,
+	nth_value(id, 2) over(order by id rows between unbounded preceding and unbounded following) as nth_val
+from test_data td ;
+
+-- window with ranking function
+
+select *,
+	row_number() over(order by id) as row_num, -- row_number is used to give a unique number to each row
+	row_number() over(partition by category) as row_num_by_category,
+	rank() over(order by id) as rank, -- Creates gaps in ranking numbers when there are ties, 1,1,3,4,4,6,.. Use rank() when you want to show the actual position including ties and gaps
+	dense_rank() over(order by id) as dense_rank, -- No gaps in ranking numbers, continues with next sequential number, 1,1,2,3,3,4,.. Use dense_rank() when you want consecutive rankings without gaps
+	percent_rank() over(order by id) as percent_rank -- percent_rank is used to give the rank in percentage
+from test_data td ;
+
+
+-- window with analytical function
+select *, 
+	first_value(id) over(order by id) as first_val,
+	last_value(id) over(order by id) as last_val,
+	lag(id) over(order by id) as lag_val,
+	lag(id, 2) over(order by id) as lag_val2,
+	lead(id) over(order by id) as lead_val,
+	lead(id, 2) over(order by id) as lead_val2,
+	nth_value(id, 2) over(order by id) as nth_val
+from test_data td ;
+-- if you just want the single last value from whole column, use 'ROWS BETWEEN UNBOUNDED PRECEEDING AND UNBOUNDED FOLLOWING'
+-- we can offset the LEAD and LAG values by providing a second parameter as 'n', default value is 1.
