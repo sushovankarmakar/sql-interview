@@ -395,3 +395,82 @@ with my_cte as (
 	from customer c 
 )
 select name, city, salary, round(avg_salary_by_city,2) as avg_salary from my_cte ;
+
+-- Recursive CTE
+-- a recursive CTE is a CTE that references itself
+-- a recursive CTE is useful when you need to query hierarchical data, such as organizational structure, bill of materials, or set of possible moves in a chess game
+
+-- A recursive CTE has three elements:
+-- 1. Non recursive term - the anchor member that starts the recursion
+-- 2. Recursive term - one or more CTE query definitions joined with non-recursive term using UNION or UNION ALL operator
+-- 3. Terminating condition - the condition that determines when to stop the recursion
+
+-- syntax
+WITH RECURSIVE cte_name AS (
+	-- anchor member
+	SELECT column1, column2, column3, ...
+	FROM table_name
+	UNION ALL
+	-- recursive member
+	SELECT column1, column2, column3, ...
+	FROM cte_name
+	WHERE condition
+)
+
+-- example
+-- write a counting to generate a series of numbers from 1 to 3 without using any function
+with recursive my_cte as (
+	select 1 as n 			-- anchor member
+	union all
+	select n+1 from my_cte 	-- recursive member
+	where n < 3)			-- terminating condition
+select * from my_cte;
+
+-- example
+create table employees (
+	emp_id serial primary key,
+	emp_name varchar not null,
+	manager_id int
+);
+
+insert into employees (
+	emp_id, emp_name, manager_id
+)
+values
+(1, 'Madhav', null),
+(2, 'Sam', 1),
+(3, 'Tom', 2),
+(4, 'Arjun', 6),
+(5, 'Shiva', 4),
+(6, 'Keshav', 1),
+(7, 'Damodar', 5);
+
+with recursive EmpCTE as (
+	-- anchor query
+	select emp_id, emp_name, manager_id from employees
+	where emp_id = 7
+	
+	union all
+	
+	-- recursive query
+	select employees.emp_id, employees.emp_name, employees.manager_id
+	from employees 
+	join EmpCTE
+	on employees.emp_id = EmpCTE.manager_id 
+)
+select * from EmpCTE;
+
+-- output
+-- 7	Damodar	5
+-- 5	Shiva	4
+-- 4	Arjun	6
+-- 6	Keshav	1
+-- 1	Madhav	(null)
+
+-- use cases of recursive CTE
+-- 1. count up until a certain number
+-- 2. finding bosses and hierarchical level of all employess
+-- 3. finding all possible moves in a chess game
+-- 4. finding all possible paths in a maze
+-- 5. finding all possible routes between two cities
+-- 6. finding ancestors  
