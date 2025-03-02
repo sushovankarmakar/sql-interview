@@ -312,3 +312,51 @@ select *,
 from test_data td ;
 -- if you just want the single last value from whole column, use 'ROWS BETWEEN UNBOUNDED PRECEEDING AND UNBOUNDED FOLLOWING'
 -- we can offset the LEAD and LAG values by providing a second parameter as 'n', default value is 1.
+
+
+-- CASE statement and CASE expression
+-- the CASE expression is used to compare one expression with a set of expressions in SQL
+-- and return a value based on the result of the comparison
+-- the CASE expression is similar to the IF-THEN-ELSE statement in other programming languages
+-- the CASE expression goes through conditions and returns a value when the first condition is met
+-- if no conditions are true, it returns the value in the ELSE clause
+-- if there is no ELSE part and no conditions are true, it returns NULL
+
+-- case statment syntax
+CASE
+	WHEN condition1 THEN result1
+	WHEN condition2 THEN result2
+	...
+	ELSE result
+END
+
+-- example
+-- select all customers and add a new column 'status' based on their salary
+select
+	case 
+		when c.salary >= 15 then 'expensive'
+		when c.salary < 15 then 'non-expensive'
+		else 'nothing'
+	end as status,
+	c.* 
+from customer c ;
+
+-- case expression syntax
+CASE expression
+	WHEN value1 THEN result1
+	WHEN value2 THEN result2
+	...
+	ELSE result
+END
+
+-- example
+-- select all customers and add a new column 'city_name' based on their city
+select 
+	case city
+		when 'ggn' then 'gurgaon'
+		when 'kol' then 'kolkata'
+		when 'bbsr' then 'bhubaneswar'
+		else 'other'
+	end as city_name,
+	c.*
+from customer c ;
