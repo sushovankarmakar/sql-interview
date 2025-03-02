@@ -360,3 +360,38 @@ select
 	end as city_name,
 	c.*
 from customer c ;
+
+-- Common Table Expression (CTE)
+-- a common table expression (CTE) is a temporary result set created from a simple SELECT statement 
+-- that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement
+
+-- a CTE can be used to:
+-- 1. create a recursive query
+-- 2. reference the same table multiple times in the same query
+-- 3. simplify complex queries
+-- 4. improve the readability of a query
+-- 5. improve the performance of a query
+-- 6. create a view that can be used in multiple queries
+-- 7. create a derived table
+
+-- we can create a CTE using the WITH clause directly before SELECT, INSERT, UPDATE, DELETE or MERGE statement.
+-- the CTE is defined by a query that starts with the WITH keyword followed by the name of the CTE and a query definition in parentheses.
+-- the WITH clause can include one or more CTEs separated by a comma.
+
+-- syntax
+WITH cte_name AS (
+	SELECT column1, column2, column3, ...
+	FROM table_name
+)
+SELECT column1, column2, column3, ...
+FROM cte_name;
+
+-- example
+-- select all customers and add a new column 'avg_salary_by_city' based on their city
+-- and then select the name, city, salary and avg_salary_by_city
+with my_cte as (
+	select *, 
+		avg(salary) over(partition by city) as avg_salary_by_city
+	from customer c 
+)
+select name, city, salary, round(avg_salary_by_city,2) as avg_salary from my_cte ;
