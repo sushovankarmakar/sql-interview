@@ -46,17 +46,52 @@ LIMIT 1;
 /* Q1: Write query to return the email, first name, last name, & Genre of all Rock Music listeners. 
 Return your list ordered alphabetically by email starting with A. */
 
-/* Method 1 */
-/* Method 2 */
+-- simple approach
+SELECT DISTINCT c.email, c.first_name, c.last_name, g."name" 
+FROM customer c 
+JOIN invoice i ON c.customer_id = i.customer_id
+JOIN invoice_line il ON i.invoice_id = il.invoice_id
+JOIN track t ON il.track_id = t.track_id
+JOIN genre g ON t.genre_id = g.genre_id
+WHERE g."name" = 'Rock'
+ORDER BY c.email ASC ;
+
+-- more optimal approach 
+SELECT DISTINCT c.email, c.first_name, c.last_name 
+FROM customer c 
+JOIN invoice i ON c.customer_id = i.customer_id
+JOIN invoice_line il ON i.invoice_id = il.invoice_id
+WHERE il.track_id IN (
+	SELECT track_id 
+	FROM track t
+	JOIN genre g ON t.genre_id = g.genre_id 
+	WHERE g."name" = 'Rock'
+)
+ORDER BY c.email ASC ;
 
 
 /* Q2: Let's invite the artists who have written the most rock music in our dataset. 
 Write a query that returns the Artist name and total track count of the top 10 rock bands. */
 
+SELECT a."name", count(a.artist_id) AS total_songs 
+FROM artist a 
+JOIN album al ON a.artist_id = al.artist_id
+JOIN track t ON al.album_id = t.album_id
+JOIN genre g ON t.genre_id = g.genre_id
+WHERE g."name" = 'Rock'
+GROUP BY a.artist_id 
+ORDER BY total_songs DESC 
+LIMIT 10;
 
 
 /* Q3: Return all the track names that have a song length longer than the average song length. 
 Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first. */
+
+SELECT t.track_id, t."name", t.milliseconds 
+FROM track t 
+WHERE t.milliseconds >
+	(SELECT AVG(t.milliseconds) FROM track t)
+ORDER BY t.milliseconds DESC ;
 
 
 
