@@ -1,5 +1,8 @@
 /*	Question Set 1 - Easy */
 
+-- Schema 
+-- https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/MusicDatabaseSchema.png
+
 /* Q1: Who is the senior most employee based on job title? */
 
 SELECT e.title, e.last_name , e.first_name, e.levels 
