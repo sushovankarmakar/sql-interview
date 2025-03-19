@@ -1,3 +1,5 @@
+*[Complex SQL Query 1 | Derive Points table for ICC tournament](https://www.youtube.com/watch?v=qyAgWL066Vo)*
+
 # ICC World Cup Analysis - Approach 2
 
 ## Input Data
