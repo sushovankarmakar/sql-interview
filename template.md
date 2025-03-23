@@ -43,3 +43,17 @@ sql
 
 ## Output
 
+
+## Explanation
+
+1. **Table Structure**:
+   - ..
+
+2. **Problem Requirements**:
+   - ..
+
+3. **Solution Approach**:
+   - ..
+
+4. **Key Concepts Used**:
+   - ..
