@@ -3,11 +3,6 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 
 ## 📆 Daily Progress
 
-# SQL Interview Preparation
-Collection of SQL solutions from various platforms with daily progress tracking.
-
-## 📆 Daily Progress
-
 ### March 2025
 | Date | Platform | Topic | Difficulty | Category | Explanation |
 |------|----------|-------|------------|----------|-------------|
