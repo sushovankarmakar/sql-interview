@@ -129,3 +129,46 @@ FROM users_count uc;
 5. Floating-point arithmetic (100.0)
 6. Foreign key relationships
 7. DISTINCT to avoid duplicate counting
+
+
+
+# optimized version with performance enhancements
+```sql
+WITH active_users AS (
+	SELECT DISTINCT user_id
+	FROM events
+	WHERE action IN ('like', 'comment')
+),
+user_stats AS (
+	SELECT
+		COUNT(*) as total_users,
+		COUNT(*) FILTER (WHERE u.user_id NOT IN (SELECT user_id FROM active_users)) AS inactive_users
+	FROM users u
+)
+SELECT
+	ROUND(
+		(inactive_users * 100.0 / NULLIF(total_users, 0))
+	, 2) AS inactive_users_percentage
+FROM user_stats;
+```
+
+## Query Optimizations:
+### 1. Improved CTE Structure
+	* Separated active users lookup into its own CTE
+	* Reduces repeated subquery execution
+	* Better query plan optimization
+	* FILTER Clause
+
+### 2. Replaced WHERE clause with FILTER
+	* More efficient for conditional counting
+	* Better optimizer hints
+	* NULL Handling
+
+### 3. Added NULLIF for zero division protection
+	* No performance overhead
+	* Better error handling
+	* Reduced Subqueries
+
+### 4. Eliminated nested subquery for total users count
+	* Single pass through users table
+	* More efficient execution plan

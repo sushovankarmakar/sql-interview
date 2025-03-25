@@ -61,4 +61,23 @@ SELECT
 FROM users_count uc;
 
 
+-- an optimized version with performance enhancements
+
+WITH active_users AS (
+	SELECT DISTINCT user_id
+	FROM events
+	WHERE action IN ('like', 'comment')
+),
+user_stats AS (
+	SELECT
+		COUNT(*) as total_users,
+		COUNT(*) FILTER (WHERE u.user_id NOT IN (SELECT user_id FROM active_users)) AS inactive_users
+	FROM users u
+)
+SELECT
+	ROUND(
+		(inactive_users * 100.0 / NULLIF(total_users, 0))
+	, 2) AS inactive_users_percentage
+FROM user_stats;
+
 
