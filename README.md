@@ -6,6 +6,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 ### March 2025
 | Date | Platform | Topic | Difficulty | Category | Explanation |
 |------|----------|-------|------------|----------|-------------|
+| 27 | PrepVector | [Most Recent Transaction](./prepvector/sql/4_MostRecentTransaction.sql) | Medium | Window Functions | [📝Link](./prepvector/explanation/4_MostRecentTransaction.md)
 | 26 | PrepVector | [Single vs Repeat Job Posters](./prepvector/sql/3_SingleVsRepeatJobPosters.sql) | Medium | Aggregation | [📝Link](./prepvector/explanation/3_SingleVsRepeatJobPosters.md)
 | 25 | PrepVector | [Home Address Order %](./prepvector/sql/2_HomeAddressOrderPercent.sql) | Medium | Aggregation | [📝Link](./prepvector/explanation/2_HomeAddressOrderPercent.md)
 | 24 | PrepVector | [Inactive User %](./prepvector/sql/1_InactiveUsersPercentage.sql) | Easy | Joins | [📝Link](./prepvector/explanation/1_InactiveUsersPercentage.md)
@@ -30,9 +31,9 @@ Collection of SQL solutions from various platforms with daily progress tracking.
    - Beginner-friendly SQL fundamentals
 
 ## 📊 Statistics
-- Total Problems Solved: 11
+- Total Problems Solved: 12
 - Platforms Covered: 3
-- Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs
+- Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions
 
 ## 🛠️ Tools Used
 - PostgreSQL
