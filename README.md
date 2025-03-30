@@ -6,6 +6,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 ### March 2025
 | Date | Platform | Topic | Difficulty | Category | Key Concepts |  Explanation |
 |------|----------|-------|------------|----------|------------|-------------|
+| 30 | PrepVector | [Upsold Customer Count](./prepvector/sql/7_UpsoldCustomerCount.sql) | Medium | Aggregation | DISTINCT, DATE, CTE | [📝](./prepvector/explanation/7_UpsoldCustomerCount.md)
 | 29 | PrepVector | [Above Avg Products](./prepvector/sql/6_AboveAvgProductPrices.sql) | Medium | Aggregation | AVG, CTE, CROSS JOIN | [📝](./prepvector/explanation/6_AboveAvgProductPrices.md)
 | 28 | PrepVector | [Post Completion Rate](./prepvector/sql/5_PostCompletionRateAnalysis.sql) | Medium | Aggregation | SUM, CASE, CTEs |[📝](./prepvector/explanation/5_PostCompletionRateAnalysis.md)
 | 27 | PrepVector | [Most Recent Transaction](./prepvector/sql/4_MostRecentTransaction.sql) | Medium | Window Functions | ROW_NUMBER, DATE, CTE |[📝](./prepvector/explanation/4_MostRecentTransaction.md)
@@ -33,7 +34,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
    - Beginner-friendly SQL fundamentals
 
 ## 📊 Statistics
-- Total Problems Solved: 14
+- Total Problems Solved: 15
 - Platforms Covered: 3
 - Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic
 
