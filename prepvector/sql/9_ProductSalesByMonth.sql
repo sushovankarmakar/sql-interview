@@ -22,6 +22,8 @@ INSERT INTO monthly_sales (month, product_id, amount_sold) VALUES
 -- write a query to find the total amount of each product sold for each month, 
 -- with each product as its own column in the output table.
 
+SELECT * FROM monthly_sales ms;
+
 SELECT
 	ms.month,
 	SUM (CASE WHEN ms.product_id = 1 THEN ms.amount_sold ELSE 0 END) AS product_1,
