@@ -3,6 +3,11 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 
 ## 📆 Daily Progress
 
+### April 2025
+| Date | Platform | Topic | Difficulty | Category | Key Concepts | Review |
+|------|----------|-------|------------|-----------|-------------|---------|
+| 1 | PrepVector | [Product Sales by Month](./prepvector/sql/9_ProductSalesByMonth.sql) | Medium | Pivoting | CASE, SUM, GROUP BY | [📝](./prepvector/explanation/9_ProductSalesByMonth.md)
+
 ### March 2025
 | Date | Platform | Topic | Difficulty | Category | Key Concepts |  Explanation |
 |------|----------|-------|------------|----------|------------|-------------|
@@ -35,9 +40,9 @@ Collection of SQL solutions from various platforms with daily progress tracking.
    - Beginner-friendly SQL fundamentals
 
 ## 📊 Statistics
-- Total Problems Solved: 16
+- Total Problems Solved: 17
 - Platforms Covered: 3
-- Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic, Self Join
+- Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic, Self Join, Pivoting
 
 ## 🛠️ Tools Used
 - PostgreSQL
