@@ -6,6 +6,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 ### April 2025
 | Date | Platform | Topic | Difficulty | Category | Key Concepts | Review |
 |------|----------|-------|------------|-----------|-------------|---------|
+| 2 | InterviewMaster | [User Engagement](./interviewmaster/sql/easy/netflix/1_UserEngagementInInteractiveContent.sql) | Easy | Data Analysis | DATE, DISTINCT | [📝](./interviewmaster/explanation/easy/netflix/1_UserEngagementInInteractiveContent.md)
 | 2 | PrepVector | [Likers' Likers](./prepvector/sql/10_LikersLiker.sql) | Medium | Self Joins | JOIN, COUNT DISTINCT | [📝](./prepvector/explanation/10_LikersLiker.md)
 | 1 | PrepVector | [Product Sales by Month](./prepvector/sql/9_ProductSalesByMonth.sql) | Medium | Pivoting | CASE, SUM, GROUP BY | [📝](./prepvector/explanation/9_ProductSalesByMonth.md)
 
@@ -41,8 +42,8 @@ Collection of SQL solutions from various platforms with daily progress tracking.
    - Beginner-friendly SQL fundamentals
 
 ## 📊 Statistics
-- Total Problems Solved: 17
-- Platforms Covered: 3
+- Total Problems Solved: 19
+- Platforms Covered: 4
 - Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic, Self Join, Pivoting
 
 ## 🛠️ Tools Used
