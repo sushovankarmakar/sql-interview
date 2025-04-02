@@ -6,6 +6,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 ### April 2025
 | Date | Platform | Topic | Difficulty | Category | Key Concepts | Review |
 |------|----------|-------|------------|-----------|-------------|---------|
+| 2 | PrepVector | [Likers' Likers](./prepvector/sql/10_LikersLiker.sql) | Medium | Self Joins | JOIN, COUNT DISTINCT | [📝](./prepvector/explanation/10_LikersLiker.md)
 | 1 | PrepVector | [Product Sales by Month](./prepvector/sql/9_ProductSalesByMonth.sql) | Medium | Pivoting | CASE, SUM, GROUP BY | [📝](./prepvector/explanation/9_ProductSalesByMonth.md)
 
 ### March 2025
