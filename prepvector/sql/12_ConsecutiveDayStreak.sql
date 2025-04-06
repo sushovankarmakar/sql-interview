@@ -90,6 +90,8 @@ INSERT INTO user_events (user_id, created_at, url) VALUES
 -- find the top five users with the longest continuous streak of visiting the platform in 2020.
 -- A continuous streak counts if the user visits the platform at least once per day on consecutive days.
 
+SELECT * FROM user_events ue;
+
 -- my older solution : I was stuck after one point.
 ----------------------------------------------------
 -- WITH next_day_details AS (
