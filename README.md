@@ -6,6 +6,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 ### April 2025
 | Date | Platform | Topic | Difficulty | Category | Key Concepts | Review |
 |------|----------|-------|------------|-----------|-------------|---------|
+| 6 | PrepVector | [Click Through Rate by Age](./prepvector/sql/13_ClickThroughRateByAge.sql) | Medium | Data Analysis | COALESCE, NULLIF, Age Groups | [📝](./prepvector/explanation/13_ClickThroughRateByAge.md)
 | 6 | PrepVector | [Consecutive Day Streak](./prepvector/sql/12_ConsecutiveDayStreak.sql) | Medium | Window Functions | LAG, Running Sum, CTE | [📝](./prepvector/explanation/12_ConsecutiveDayStreak.md)
 | 3 | PrepVector | [Third Unique Song](./prepvector/sql/11_ThirdUniqueSongPlayDate.sql) | Medium | Window Functions | DENSE_RANK, CTE | [📝](./prepvector/explanation/11_ThirdUniqueSongPlayDate.md)
 | 2 | InterviewMaster | [User Engagement](./interviewmaster/sql/easy/netflix/1_UserEngagementInInteractiveContent.sql) | Easy | Data Analysis | DATE, DISTINCT | [📝](./interviewmaster/explanation/easy/netflix/1_UserEngagementInInteractiveContent.md)
@@ -44,9 +45,9 @@ Collection of SQL solutions from various platforms with daily progress tracking.
    - Beginner-friendly SQL fundamentals
 
 ## 📊 Statistics
-- Total Problems Solved: 21
+- Total Problems Solved: 22
 - Platforms Covered: 4
-- Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic, Self Join, Pivoting, DENSE_RANK, Running Sum
+- Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic, Self Join, Pivoting, DENSE_RANK, Running Sum, COALESCE
 
 ## 🛠️ Tools Used
 - PostgreSQL
