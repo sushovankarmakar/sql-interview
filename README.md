@@ -6,6 +6,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
 ### April 2025
 | Date | Platform | Topic | Difficulty | Category | Key Concepts | Review |
 |------|----------|-------|------------|-----------|-------------|---------|
+| 7 | PrepVector | [Duplicate Transaction](./prepvector/sql/15_DuplicateTransaction.sql) | Medium | Window Functions | LAG, INTERVAL | [📝](./prepvector/explanation/15_DuplicateTransaction.md)
 | 7 | PrepVector | [Monthly Revenue Growth](./prepvector/sql/14_MonthlyRevenueGrowth.sql) | Medium | Data Analysis | LAG, COALESCE, Revenue Calculation | [📝](./prepvector/explanation/14_MonthlyRevenueGrowth.md)
 | 6 | PrepVector | [Click Through Rate by Age](./prepvector/sql/13_ClickThroughRateByAge.sql) | Medium | Data Analysis | COALESCE, NULLIF, Age Groups | [📝](./prepvector/explanation/13_ClickThroughRateByAge.md)
 | 6 | PrepVector | [Consecutive Day Streak](./prepvector/sql/12_ConsecutiveDayStreak.sql) | Medium | Window Functions | LAG, Running Sum, CTE | [📝](./prepvector/explanation/12_ConsecutiveDayStreak.md)
@@ -46,7 +47,7 @@ Collection of SQL solutions from various platforms with daily progress tracking.
    - Beginner-friendly SQL fundamentals
 
 ## 📊 Statistics
-- Total Problems Solved: 23
+- Total Problems Solved: 24
 - Platforms Covered: 4
 - Topics Covered: Data Analysis, Aggregations, Window Functions, CTEs, Date Functions, Conditional Logic, Self Join, Pivoting, DENSE_RANK, Running Sum, COALESCE
 
