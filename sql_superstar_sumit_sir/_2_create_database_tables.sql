@@ -14,8 +14,8 @@ USE retail_db;
 CREATE TABLE orders(
 	order_id int,
 	order_date datetime,
-	customer_id int,
-	order_status varchar(30)
+	order_customer_id int,
+	order_status varchar(45)
 );
 
 -- show tables under the current database
