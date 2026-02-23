@@ -165,6 +165,8 @@ CREATE TABLE IF NOT EXISTS sales (
     store_location VARCHAR(50)
 );
 
+SELECT * FROM sales AS s;
+
 
 
 
