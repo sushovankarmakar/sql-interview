@@ -170,8 +170,56 @@ SELECT * FROM sales AS s;
 
 
 
+CREATE TABLE orders1 (
+	order_id INT AUTO_INCREMENT PRIMARY KEY,
+	customer_id INT,
+	product_id INT,
+	quantity INT,
+	order_date DATE,
+	total_amount DECIMAL(10, 2)
+);
 
+INSERT INTO orders1 (customer_id, product_id, quantity, order_date, total_amount)
+VALUES
+(1, 101, 2, CURRENT_DATE, 199.98),
+(2, 102, 1, CURRENT_DATE, 99.99),
+(3, 103, 5, CURRENT_DATE, 499.95),
+(4, 104, 3, CURRENT_DATE, 299.97),
+(5, 105, 4, CURRENT_DATE, 399.96);
 
+CREATE TABLE products (
+	product_name VARCHAR(50),
+	discount_price DECIMAL(10, 2),
+	regular_price DECIMAL(10, 2)
+);
+
+INSERT INTO products (product_name, discount_price, regular_price) VALUES
+('Laptop', NULL, 1200.00),
+('Smartphone', 800.00, 1000.00),
+('Tablet', NULL, 300.00);
+
+CREATE TABLE orders (
+	order_id INT,
+	billing_address VARCHAR(100),
+	shipping_address VARCHAR(100),
+	customer_address VARCHAR(100)
+);
+
+INSERT INTO orders (order_id, billing_address, shipping_address, customer_address) VALUES
+(1, '123 Main St', NULL, '789 Oak Ave'),
+(2, NULL, '456 Maple Rd', '101 Pine St'),
+(3, NULL, NULL, '303 Elm St');
+
+CREATE TABLE sales_new (
+	sale_id INT,
+	online_sales DECIMAL(10, 2),
+	store_sales DECIMAL(10, 2)
+);
+
+INSERT INTO sales_new (sale_id, online_sales, store_sales) VALUES
+(1, 1500.50, NULL),
+(2, NULL, 2500.75),
+(3, 1000.25, 500.00);
 
 
 
