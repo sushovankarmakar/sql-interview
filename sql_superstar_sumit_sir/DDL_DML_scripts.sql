@@ -223,10 +223,107 @@ INSERT INTO sales_new (sale_id, online_sales, store_sales) VALUES
 
 
 
+CREATE TABLE purchases (
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(100),
+	purchase_date DATE
+);
+INSERT INTO purchases (customer_id, first_name, last_name, email, purchase_date) VALUES
+(101, 'Aarav', 'Sharma', 'aarav.sharma@example.com', '2024-07-05'),
+(102, 'Vihaan', 'Singh', 'vihaan.singh@example.com', '2024-06-25'),
+(103, 'Aditi', 'Mehta', 'aditi.mehta@example.com', '2024-07-15'),
+(104, 'Rohan', 'Kumar', 'rohan.kumar@example.com', '2024-07-12'),
+(105, 'Isha', 'Patel', 'isha.patel@example.com', '2024-07-18'),
+(106, 'Kavya', 'Verma', 'kavya.verma@example.com', '2024-06-28'),
+(107, 'Arjun', 'Reddy', 'arjun.reddy@example.com', '2024-07-09'),
+(108, 'Anaya', 'Nair', 'anaya.nair@example.com', '2024-07-22'),
+(109, 'Saanvi', 'Gupta', 'saanvi.gupta@example.com', '2024-07-20'),
+(110, 'Kabir', 'Agarwal', 'kabir.agarwal@example.com', '2024-07-19'),
+(111, 'Neha', 'Saxena', 'neha.saxena@example.com', '2024-06-24'),
+(112, 'Tanishq', 'Rana', 'tanishq.rana@example.com', '2024-07-10'),
+(113, 'Mira', 'Bhatt', 'mira.bhatt@example.com', '2024-07-21'),
+(114, 'Dev', 'Kapoor', 'dev.kapoor@example.com', '2024-07-17'),
+(115, 'Riya', 'Joshi', 'riya.joshi@example.com', '2024-07-11');
+
+
+CREATE TABLE newsletter_subscriptions (
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(100),
+	subscription_date DATE
+);
+INSERT INTO newsletter_subscriptions (customer_id, first_name, last_name, email, subscription_date) VALUES
+(101, 'Aarav', 'Sharma', 'aarav.sharma@example.com', '2024-07-01'),
+(109, 'Saanvi', 'Gupta', 'saanvi.gupta@example.com', '2024-07-05'),
+(116, 'Lakshay', 'Malhotra', 'lakshay.malhotra@example.com', '2024-06-29'),
+(112, 'Tanishq', 'Rana', 'tanishq.rana@example.com', '2024-07-03'),
+(117, 'Sneha', 'Chawla', 'sneha.chawla@example.com', '2024-07-15'),
+(113, 'Mira', 'Bhatt', 'mira.bhatt@example.com', '2024-06-30'),
+(118, 'Rahul', 'Pillai', 'rahul.pillai@example.com', '2024-07-06'),
+(105, 'Isha', 'Patel', 'isha.patel@example.com', '2024-07-18'),
+(106, 'Kavya', 'Verma', 'kavya.verma@example.com', '2024-07-20'),
+(115, 'Riya', 'Joshi', 'riya.joshi@example.com', '2024-07-22'),
+(119, 'Nikhil', 'Chandra', 'nikhil.chandra@example.com', '2024-07-08'),
+(107, 'Arjun', 'Reddy', 'arjun.reddy@example.com', '2024-07-10'),
+(108, 'Anaya', 'Nair', 'anaya.nair@example.com', '2024-07-13'),
+(114, 'Dev', 'Kapoor', 'dev.kapoor@example.com', '2024-07-14'),
+(104, 'Rohan', 'Kumar', 'rohan.kumar@example.com', '2024-07-11');
+
+
+-- DROP TABLE RETURNS;
+CREATE TABLE returns (
+	customer_id INT PRIMARY KEY,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(100),
+	return_date DATE
+);
+INSERT INTO returns (customer_id, first_name, last_name, email, return_date) VALUES
+(103, 'Aditi', 'Mehta', 'aditi.mehta@example.com', '2024-07-17'),
+(102, 'Vihaan', 'Singh', 'vihaan.singh@example.com', '2024-07-14'),
+(104, 'Rohan', 'Kumar', 'rohan.kumar@example.com', '2024-07-19'),
+(110, 'Kabir', 'Agarwal', 'kabir.agarwal@example.com', '2024-07-08'),
+(105, 'Isha', 'Patel', 'isha.patel@example.com', '2024-07-21'),
+(107, 'Arjun', 'Reddy', 'arjun.reddy@example.com', '2024-07-10'),
+(111, 'Neha', 'Saxena', 'neha.saxena@example.com', '2024-07-16'),
+(116, 'Lakshay', 'Malhotra', 'lakshay.malhotra@example.com', '2024-07-02'),
+(117, 'Sneha', 'Chawla', 'sneha.chawla@example.com', '2024-07-18'),
+(112, 'Tanishq', 'Rana', 'tanishq.rana@example.com', '2024-07-07'),
+(108, 'Anaya', 'Nair', 'anaya.nair@example.com', '2024-07-09'),
+(114, 'Dev', 'Kapoor', 'dev.kapoor@example.com', '2024-07-11'),
+(109, 'Saanvi', 'Gupta', 'saanvi.gupta@example.com', '2024-07-12'),
+(113, 'Mira', 'Bhatt', 'mira.bhatt@example.com', '2024-07-20'),
+(101, 'Aarav', 'Sharma', 'aarav.sharma@example.com', '2024-07-22');
 
 
 
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_department_id` int(11) NOT NULL,
+  `category_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`category_id`)
+)
 
+INSERT INTO `categories` VALUES (1,2,'Football'),(2,2,'Soccer'),(3,2,'Baseball & Softball'),(4,2,'Basketball'),(5,2,'Lacrosse'),(6,2,'Tennis & Racquet'),(7,2,'Hockey'),(8,2,'More Sports'),(9,3,'Cardio Equipment'),(10,3,'Strength Training'),(11,3,'Fitness Accessories'),(12,3,'Boxing & MMA'),(13,3,'Electronics'),(14,3,'Yoga & Pilates'),(15,3,'Training by Sport'),(16,3,'As Seen on  TV!'),(17,4,'Cleats'),(18,4,'Men\'s Footwear'),(19,4,'Women\'s Footwear'),(20,4,'Kids\' Footwear'),(21,4,'Featured Shops'),(22,4,'Accessories'),(23,5,'Men\'s Apparel'),(24,5,'Women\'s Apparel'),(25,5,'Boys\' Apparel'),(26,5,'Girls\' Apparel'),(27,5,'Accessories'),(28,5,'Top Brands'),(29,5,'Shop By Sport'),(30,6,'Men\'s Golf Clubs'),(31,6,'Women\'s Golf Clubs'),(32,6,'Golf Apparel'),(33,6,'Golf Shoes'),(34,6,'Golf Bags & Carts'),(35,6,'Golf Gloves'),(36,6,'Golf Balls'),(37,6,'Electronics'),(38,6,'Kids\' Golf Clubs'),(39,6,'Team Shop'),(40,6,'Accessories'),(41,6,'Trade-In'),(42,7,'Bike & Skate Shop'),(43,7,'Camping & Hiking'),(44,7,'Hunting & Shooting'),(45,7,'Fishing'),(46,7,'Indoor/Outdoor Games'),(47,7,'Boating'),(48,7,'Water Sports'),(49,8,'MLB'),(50,8,'NFL'),(51,8,'NHL'),(52,8,'NBA'),(53,8,'NCAA'),(54,8,'MLS'),(55,8,'International Soccer'),(56,8,'World Cup Shop'),(57,8,'MLB Players'),(58,8,'NFL Players');
+
+DROP TABLE IF EXISTS `customers`;
+
+CREATE TABLE `customers` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_fname` varchar(45) NOT NULL,
+  `customer_lname` varchar(45) NOT NULL,
+  `customer_email` varchar(45) NOT NULL,
+  `customer_password` varchar(45) NOT NULL,
+  `customer_street` varchar(255) NOT NULL,
+  `customer_city` varchar(45) NOT NULL,
+  `customer_state` varchar(45) NOT NULL,
+  `customer_zipcode` varchar(45) NOT NULL,
+  PRIMARY KEY (`customer_id`)
+)
 
 
 
